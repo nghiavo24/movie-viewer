@@ -1,8 +1,14 @@
 import React from "react";
 
-const Sidebar = () => {
+
+const Sidebar = (props) => {
+    // let path= "/images/" + props.picture
+    // console.log(path)
     return(
-        <>Sidebar </>
+        <div>
+            <div>{props.name}</div>
+            <img src={require(`./images/${props.picture}`)} alt =""/>
+        </div>
     )
 }
 
