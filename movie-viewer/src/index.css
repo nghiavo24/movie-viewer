@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-rows: 10vw 90vw;
+  grid-template-areas: 'sidebar main'
+}
+.grid-sidebar {
+  grid-area: sidebar;
+}
+.grid-main {
+  grid-area: main;
+}
+/* https://css-tricks.com/snippets/css/complete-guide-grid/#aa-basics-browser-support */

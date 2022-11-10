@@ -1,13 +1,24 @@
 import React from "react";
-
+import { Link } from 'react-router-dom'
 
 const Sidebar = (props) => {
-    // let path= "/images/" + props.picture
-    // console.log(path)
+    
     return(
-        <div>
-            <div>{props.name}</div>
-            <img src={require(`./images/${props.picture}`)} alt =""/>
+        <div  className="grid-sidebar">
+            {
+                props.data.map((item) => {
+                    return (
+                        <div>
+                            <img src={require(`./images/${item.poster}`)} style={{height:"20vh"}}/>
+                            <Link 
+                                style={{textDecoration:'none', color:'black'}}
+                                to={'/' + item.slug}>
+                                <p>{item.title}</p>
+                                </Link>
+                        </div>
+                        )
+                })
+            }
         </div>
     )
 }

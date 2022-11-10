@@ -4,27 +4,27 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Movie from './Movie';
 import listOfMovies from './data.json';
-
-
+import { Routes, Route, Link } from 'react-router-dom';
 
 const App = () => {
   const movies = listOfMovies.movies
-  let list = movies.map((data) => {
     return (
-      <div>
-        <Sidebar name={data.title} picture={data.poster} />
-        <Movie name={data.title} picture={data.hero_image} charac={data.main_characters} content={data.description} />
-      </div>
-      )
-  })
-  return (
-    <div>
-    <Header />
-      <div>
-      {list}
-      </div>
-    </div>
-  );
+        <div>
+        <Header />
+        <Routes>
+          <Route path='/' element={<div className="grid-container">
+            <Sidebar data={movies}/>
+            <Movie  data={movies}/>
+          </div>} />
+         <Route path='/:title' element={<div className="grid-container">
+            <Sidebar data={movies}/>
+            <Movie  data={movies}/>
+          </div>} />
+        </Routes>
+        </div>
+        
+    )
+      
 }
 
 export default App;
